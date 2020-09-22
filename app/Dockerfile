@@ -17,6 +17,8 @@ RUN apk update \
     && apk add --no-cache mariadb-dev
 
 # Application environments
+# If you want to assign values in build time, you can use these environments.
+# Otherwise, we already assigned in app.yaml file.
 ENV MYSQL_USERNAME=${MYSQL_USERNAME} \
     MYSQL_PASSWORD=${MYSQL_PASSWORD} \
     MYSQL_INSTANCE_NAME=${MYSQL_INSTANCE_NAME} \
