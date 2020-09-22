@@ -1,4 +1,2 @@
 flask
-gunicorn
-mysql-connector-python
 mysqlclient
