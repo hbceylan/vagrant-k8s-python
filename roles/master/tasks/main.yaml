@@ -1,0 +1,7 @@
+- name: Check master installation
+  stat:
+    path: /etc/kubernetes/manifests/kube-apiserver.yaml
+  register: check_master_result
+
+- include: tasks/install.yaml
+  when: not check_master_result.stat.exists

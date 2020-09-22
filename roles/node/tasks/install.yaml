@@ -1,0 +1,13 @@
+- name: Copy the join command to server location
+  copy: src=join-command dest=/tmp/join-command.sh mode=0777
+
+- name: Join the node to cluster
+  command: sh /tmp/join-command.sh
+  become: yes
+
+- name: Create vagrant user kube folder
+  file: path=/home/vagrant/.kube state=directory
+
+- name: Copy the kubeconfig file to server location
+  copy: src=k8s-configs/config dest=/home/vagrant/.kube/config mode=0600
+

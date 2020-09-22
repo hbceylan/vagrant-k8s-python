@@ -1,0 +1,6 @@
+- name: "Check if Kubernetes is installed"
+  package_facts:
+    manager: "auto"
+
+- include: tasks/install.yaml
+  when: "'kubeadm' not in ansible_facts.packages"

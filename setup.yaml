@@ -1,0 +1,13 @@
+---
+    - hosts: all
+      roles:
+        - { role: docker, tags: ['docker'] }
+        - { role: k8s-install, tags: ['k8s-install'] }
+    
+    - hosts: masters
+      roles:
+        - { role: master, tags: ['master'] }
+    
+    - hosts: nodes
+      roles:
+        - { role: node, tags: ['node'] }

@@ -1,0 +1,7 @@
+- name: Check node installation
+  stat:
+    path: /etc/kubernetes/kubelet.conf
+  register: check_node_result
+
+- include: tasks/install.yaml
+  when: not check_node_result.stat.exists
