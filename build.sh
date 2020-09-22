@@ -1,5 +1,12 @@
 #!/bin/bash
 
+node_ready=$(kubectl get nodes | grep node-1 | awk '{print $2}')
+if [[ $node_ready == "Ready" ]]; then
+    echo "Node is ready!"
+else
+    exit 1
+fi
+
 # Change workdir
 cd /vagrant/app
 
