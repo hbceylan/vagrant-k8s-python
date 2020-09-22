@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: hello-devops
-        image: busayr/hello-devops-dev:9b3497de7732
+        image: busayr/hello-devops-dev:4932133f558e
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
