@@ -79,11 +79,12 @@ There are 3 core steps:
 ```
 
 ### **Example Usage**
+### Installation
 - `Clone` the repository and navigate to the repo's `root` folder
 
 - Run `vagrant up` command. This will provision `2 VMs` which are master and node instances. Then the `ansible-playbook` will install the `Kubernetes` cluster as `1 master` and `1 node`.
 
-- Run `build.sh` script to `build` and `deploy` the application to the `Kubernetes` cluster. After the execution, you should see the information like below:
+- Run `cat ./build.sh | vagrant ssh node-1` command to `build` and `deploy` the application to the `Kubernetes` cluster. After the execution, you should see the information like below:
 
 ```
 #########
@@ -92,6 +93,12 @@ There are 3 core steps:
  You can access http://192.168.50.11:30300
 #########
 ```
+
+### Update
+- You need to run `vagrant provision` after ansible-playbook configuration changes.
+
+### Clean-up
+- You can remove the environment by using `vagrant destroy` command.
 
 ### **License**
 Apache License 2.0
