@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-devops-service
+spec:
+  selector:
+    app: hello-devops
+  ports:
+  - port: 3000
+    targetPort: 3000
+    nodePort: 30300
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-devops
+spec:
+  selector:
+    matchLabels:
+      app: hello-devops
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-devops
+    spec:
+      containers:
+      - name: hello-devops
+        image: busayr/hello-devops-dev:9b3497de7732
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        env:
+            - name: MYSQL_USERNAME
+              value: "root"
+            - name: MYSQL_PASSWORD
+              value: "12345-!"
+            - name: MYSQL_INSTANCE_NAME
+              value: "mysql"
+            - name: MYSQL_PORT_3306_TCP_ADDR
+              value: "mysql"
+            - name: MYSQL_PORT_3306_TCP_PORT
+              value: "3306"
