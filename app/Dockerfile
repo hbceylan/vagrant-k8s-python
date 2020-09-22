@@ -3,7 +3,7 @@ FROM alpine:3.12
 # Install Python
 ENV PYTHONUNBUFFERED=1
 RUN apk add --no-cache python3 && \
-    if [ ! -e /usr/bin/python ]; then ln -sf python3 /usr/bin/python ; fi &&
+    if [ ! -e /usr/bin/python ]; then ln -sf python3 /usr/bin/python ; fi
 
 # Install pip
 RUN python3 -m ensurepip && \
